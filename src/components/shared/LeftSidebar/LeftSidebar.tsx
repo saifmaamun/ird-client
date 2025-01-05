@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const LeftSidebar = () => {
     return (
-        <div className=" max-w-[100px]">
+        <div className="max-w-[100px] lg:block hidden">
   
   
   <div className="bg-white  rounded-2xl px-1 py-5">

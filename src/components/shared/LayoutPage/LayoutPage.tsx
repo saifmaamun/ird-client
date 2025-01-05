@@ -5,7 +5,7 @@ import RightSidebar from '../RightSidebar/RightSidebar';
 
 const LayoutPage = () => {
     return (
-        <div className='flex justify-center items-start px-4 my-4 space-x-4'>
+        <div className='flex justify-center items-start p-4 bg-none space-x-4'>
             <LeftSidebar/>
             <Navbar/>
             <RightSidebar/>

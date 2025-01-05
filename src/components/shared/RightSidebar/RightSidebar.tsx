@@ -1,25 +1,94 @@
-import React from 'react';
+import Image from "next/image";
+import userIcon from "../../../assets/user-icon.png";
 
 const RightSidebar = () => {
-    return (
-        <div className=" lg:drawer-open">
-  <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-  <div className="drawer-content flex flex-col items-center justify-center">
-    {/* Page content here */}
-    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">
-      Open drawer
-    </label>
-  </div>
-  <div className="drawer-side">
-    <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-    <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
-      {/* Sidebar content here */}
-      <li><a>Sidebar Item 1</a></li>
-      <li><a>Sidebar Item 2</a></li>
-    </ul>
-  </div>
-</div>
-    );
+  return (
+    <div className="min-w-[330px] max-h-[834px] xl:block hidden ">
+      <div className="lg:flex justify-end hidden mb-8">
+        <div className="w-10 rounded-full">
+          <Image src={userIcon} alt=""></Image>
+        </div>
+      </div>
+      <div className="bg-white  rounded-2xl py-9">
+        <h1 className="text-xl font-bold text-center mb-6">Settings</h1>
+
+        <div className="flex flex-col justify-between  items-center gap-4  px-5">
+          {/* each items */}
+
+          {/* language */}
+          <div className="flex justify-start items-center py-2 ps-4 rounded-lg w-full gap-5 bg-[#F7F8FA]">
+            <div className="border rounded-full bg-[#E8F0F5] w-8 h-8  text-center">
+              <svg
+                className="rounded-full "
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.58 19.37L17.59 11.01C17.38 10.46 16.91 10.12 16.37 10.12C15.83 10.12 15.37 10.46 15.14 11.03L12.16 19.37C12.02 19.76 12.22 20.19 12.61 20.33C13 20.47 13.43 20.27 13.57 19.88L14.19 18.15H18.54L19.16 19.88C19.27 20.19 19.56 20.38 19.87 20.38C19.95 20.38 20.04 20.37 20.12 20.34C20.51 20.2 20.71 19.77 20.57 19.38L20.58 19.37ZM14.74 16.64L16.38 12.05L18.02 16.64H14.74ZM12.19 7.85C9.92999 11.42 7.89 13.58 5.41 15.02C5.29 15.09 5.16 15.12 5.04 15.12C4.78 15.12 4.53 14.99 4.39 14.75C4.18 14.39 4.3 13.93 4.66 13.73C6.75999 12.51 8.48 10.76 10.41 7.86H4.12C3.71 7.86 3.37 7.52 3.37 7.11C3.37 6.7 3.71 6.36 4.12 6.36H7.87V4.38C7.87 3.97 8.21 3.63 8.62 3.63C9.02999 3.63 9.37 3.97 9.37 4.38V6.36H13.12C13.53 6.36 13.87 6.7 13.87 7.11C13.87 7.52 13.53 7.86 13.12 7.86H12.18L12.19 7.85ZM12.23 15.12C12.1 15.12 11.97 15.09 11.85 15.02C11.2 14.64 10.57 14.22 9.97999 13.78C9.64999 13.53 9.58 13.06 9.83 12.73C10.08 12.4 10.55 12.33 10.88 12.58C11.42 12.99 12.01 13.37 12.61 13.72C12.97 13.93 13.09 14.39 12.88 14.75C12.74 14.99 12.49 15.12 12.23 15.12Z"
+                  fill="#000000"
+                />
+              </svg>
+            </div>
+            <div>
+              <h1 className="text-gray-400">Language Settings</h1>
+            </div>
+          </div>
+          {/* genarel */}
+          <div className="flex justify-start items-center py-2 ps-4 rounded-lg w-full gap-5 bg-[#F7F8FA]">
+            <div className="border rounded-full bg-[#E8F0F5] w-8 h-8  text-center">
+              <svg
+                className="rounded-full "
+                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 9.69231C9.80429 9.69231 6.79854 9.86404 4.95178 9.98536C4.35535 10.0245 3.8832 10.4754 3.81879 11.0569C3.68541 12.2608 3.53846 13.8676 3.53846 15.0769C3.53846 16.2862 3.68541 17.8931 3.81879 19.097C3.8832 19.6784 4.35535 20.1293 4.95178 20.1685C6.79854 20.2898 9.80429 20.4615 12 20.4615C14.1957 20.4615 17.2015 20.2898 19.0482 20.1685C19.6447 20.1293 20.1168 19.6784 20.1812 19.097C20.3146 17.8931 20.4615 16.2862 20.4615 15.0769C20.4615 13.8676 20.3146 12.2608 20.1812 11.0569C20.1168 10.4754 19.6447 10.0245 19.0482 9.98536C17.2015 9.86404 14.1957 9.69231 12 9.69231ZM4.85093 8.4502C6.69825 8.32885 9.74878 8.15385 12 8.15385C14.2512 8.15385 17.3018 8.32885 19.1491 8.4502C20.477 8.53744 21.5624 9.55217 21.7103 10.8875C21.8444 12.0977 22 13.7766 22 15.0769C22 16.3772 21.8444 18.0561 21.7103 19.2664C21.5624 20.6017 20.477 21.6164 19.1491 21.7036C17.3018 21.825 14.2512 22 12 22C9.74878 22 6.69825 21.825 4.85093 21.7036C3.52304 21.6164 2.43761 20.6017 2.28968 19.2664C2.1556 18.0561 2 16.3772 2 15.0769C2 13.7766 2.1556 12.0978 2.28968 10.8875C2.43761 9.55217 3.52304 8.53744 4.85093 8.4502Z" fill="#030D45"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 6.61539C10.3995 6.61539 8.248 6.69061 6.79989 6.75004C6.21382 6.77409 5.76196 7.18453 5.69116 7.70434C5.63175 8.14046 5.58974 8.57653 5.58974 8.92308C5.58974 9.34791 5.24535 9.69231 4.82051 9.69231C4.39568 9.69231 4.05128 9.34791 4.05128 8.92308C4.05128 8.47393 4.1039 7.95828 4.16677 7.4967C4.34645 6.17764 5.4686 5.26491 6.73681 5.21287C8.18625 5.15339 10.3652 5.07692 12 5.07692C13.6348 5.07692 15.8138 5.15339 17.2632 5.21287C18.5314 5.26491 19.6536 6.17764 19.8332 7.4967C19.8961 7.95828 19.9487 8.47393 19.9487 8.92308C19.9487 9.34791 19.6043 9.69231 19.1795 9.69231C18.7547 9.69231 18.4103 9.34791 18.4103 8.92308C18.4103 8.57653 18.3682 8.14046 18.3088 7.70434C18.238 7.18453 17.7862 6.77409 17.2001 6.75004C15.752 6.69061 13.6005 6.61539 12 6.61539Z" fill="#030D45"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3.53846C11.0449 3.53846 9.80589 3.59168 8.81793 3.64423C8.22109 3.67598 7.75986 4.11837 7.70772 4.67291C7.6686 5.08895 7.64103 5.50609 7.64103 5.84615C7.64103 6.27099 7.29663 6.61539 6.8718 6.61539C6.44696 6.61539 6.10256 6.27099 6.10256 5.84615C6.10256 5.43606 6.13507 4.96436 6.17601 4.52889C6.30333 3.17484 7.41874 2.17801 8.73621 2.10794C9.72881 2.05515 11.0018 2 12 2C12.9982 2 14.2712 2.05515 15.2638 2.10794C16.5813 2.17801 17.6967 3.17484 17.824 4.52889C17.8649 4.96436 17.8974 5.43606 17.8974 5.84615C17.8974 6.27099 17.553 6.61539 17.1282 6.61539C16.7034 6.61539 16.359 6.27099 16.359 5.84615C16.359 5.50609 16.3314 5.08895 16.2923 4.67291C16.2401 4.11837 15.7789 3.67598 15.1821 3.64423C14.1941 3.59168 12.9551 3.53846 12 3.53846Z" fill="#030D45"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.17949 15.0769C9.17949 14.6521 9.52388 14.3077 9.94872 14.3077H14.0513C14.4761 14.3077 14.8205 14.6521 14.8205 15.0769C14.8205 15.5018 14.4761 15.8462 14.0513 15.8462H9.94872C9.52388 15.8462 9.17949 15.5018 9.17949 15.0769Z" fill="#030D45"/>
+                </svg>
+            </div>
+            <div>
+              <h1 className="text-gray-400">Genaral Settings</h1>
+            </div>
+          </div>
+          {/* font */}
+          <div className="flex justify-start items-center py-2 ps-4 rounded-lg w-full gap-5 bg-[#F7F8FA]">
+            <div className="border rounded-full bg-[#E8F0F5] w-8 h-8  text-center">
+              <svg
+                className="rounded-full "
+                viewBox="-0.5 0 25 25"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 3.32001H16C14.8954 3.32001 14 4.21544 14 5.32001V8.32001C14 9.42458 14.8954 10.32 16 10.32H19C20.1046 10.32 21 9.42458 21 8.32001V5.32001C21 4.21544 20.1046 3.32001 19 3.32001Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8 3.32001H5C3.89543 3.32001 3 4.21544 3 5.32001V8.32001C3 9.42458 3.89543 10.32 5 10.32H8C9.10457 10.32 10 9.42458 10 8.32001V5.32001C10 4.21544 9.10457 3.32001 8 3.32001Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M19 14.32H16C14.8954 14.32 14 15.2154 14 16.32V19.32C14 20.4246 14.8954 21.32 16 21.32H19C20.1046 21.32 21 20.4246 21 19.32V16.32C21 15.2154 20.1046 14.32 19 14.32Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8 14.32H5C3.89543 14.32 3 15.2154 3 16.32V19.32C3 20.4246 3.89543 21.32 5 21.32H8C9.10457 21.32 10 20.4246 10 19.32V16.32C10 15.2154 9.10457 14.32 8 14.32Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+            </div>
+            <div>
+              <h1 className="text-gray-400">Font Settings</h1>
+            </div>
+          </div>
+          {/* appearance */}
+          <div className="flex justify-start items-center py-2 ps-4 rounded-lg w-full gap-5 bg-[#F7F8FA]">
+            <div className="border rounded-full bg-[#E8F0F5] w-8 h-8  text-center">
+            <svg
+                className="rounded-full "
+                viewBox="-0.5 0 25 25"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 3.32001H16C14.8954 3.32001 14 4.21544 14 5.32001V8.32001C14 9.42458 14.8954 10.32 16 10.32H19C20.1046 10.32 21 9.42458 21 8.32001V5.32001C21 4.21544 20.1046 3.32001 19 3.32001Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8 3.32001H5C3.89543 3.32001 3 4.21544 3 5.32001V8.32001C3 9.42458 3.89543 10.32 5 10.32H8C9.10457 10.32 10 9.42458 10 8.32001V5.32001C10 4.21544 9.10457 3.32001 8 3.32001Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M19 14.32H16C14.8954 14.32 14 15.2154 14 16.32V19.32C14 20.4246 14.8954 21.32 16 21.32H19C20.1046 21.32 21 20.4246 21 19.32V16.32C21 15.2154 20.1046 14.32 19 14.32Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8 14.32H5C3.89543 14.32 3 15.2154 3 16.32V19.32C3 20.4246 3.89543 21.32 5 21.32H8C9.10457 21.32 10 20.4246 10 19.32V16.32C10 15.2154 9.10457 14.32 8 14.32Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+            </div>
+            <div>
+              <h1 className="text-gray-400">Apperance Settings</h1>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default RightSidebar;
