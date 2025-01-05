@@ -4,12 +4,12 @@ import userIcon from "../../../assets/user-icon.png";
 const RightSidebar = () => {
   return (
     <div className="min-w-[330px] max-h-[834px] xl:block hidden ">
-      <div className="lg:flex justify-end hidden mb-8">
+      <div className="lg:flex justify-end hidden mb-8 ">
         <div className="w-10 rounded-full">
           <Image src={userIcon} alt=""></Image>
         </div>
       </div>
-      <div className="bg-white  rounded-2xl py-9">
+      <div className="bg-white shadow-sm  rounded-2xl py-9">
         <h1 className="text-xl font-bold text-center mb-6">Settings</h1>
 
         <div className="flex flex-col justify-between  items-center gap-4  px-5">
