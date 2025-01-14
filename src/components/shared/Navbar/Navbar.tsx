@@ -17,7 +17,7 @@ const Navbar = () => {
         
         <Input className="bg-white border-none" type="text" placeholder="Search By Dua Name" />
         
-        <div className="dropdown dropdown-end lg:hidden block">
+        <div className="dropdown dropdown-end 2xl:hidden block">
           
             <div className="w-10 rounded-full">
               <Image src={userIcon} alt=""></Image>

@@ -3,6 +3,7 @@ import { ScrollArea } from '../ui/scroll-area';
 import { Card, CardContent } from '../ui/card';
 import { Button } from '../ui/button';
 import { Bookmark, Copy, History, PlayCircle, Share2 } from 'lucide-react';
+import { DuaBrowserProps } from '@/types/types';
 
 
 
@@ -22,7 +23,7 @@ interface Dua {
   const duas: Dua[] = [
     {
       id: 1,
-      title: "The servant is dependent on his Lord #1",
+      title: "The servant is dependent on his Lord #2",
       translation:
         "All human beings depend on Allah for their welfare and prevention of evil in various matters of their religion and world. Allah says (interpretation of the meaning): O mankind, you are those in need of Allah, while Allah is the Free of need, the Praiseworthy.",
       reference: {
@@ -44,12 +45,13 @@ interface Dua {
   ]
 
 
-const Duas = () => {
+const Duas = ({ categories }: DuaBrowserProps) => {
+  
     return (
-        <ScrollArea className="flex-1">
-          <div className="container max-w-4xl mx-auto p-4 space-y-6">
+        <ScrollArea className="">
+          <div className=" mx-auto p-4 space-y-6">
             <div className="text-sm">
-              <span className="text-muted-foreground">Section: </span>
+              <span className="text-green-600 font-semibold">Section: </span>
               <span>The servant is dependent on his Lord</span>
             </div>
             {duas.map((dua) => (

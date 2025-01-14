@@ -3,7 +3,7 @@ import userIcon from "../../../assets/user-icon.png";
 
 const RightSidebar = () => {
   return (
-    <div className="min-w-[330px] max-h-[834px] xl:block hidden ">
+    <div className="min-w-[330px] max-h-[834px] 2xl:block hidden ">
       <div className="lg:flex justify-end hidden mb-8 ">
         <div className="w-10 rounded-full">
           <Image src={userIcon} alt=""></Image>
