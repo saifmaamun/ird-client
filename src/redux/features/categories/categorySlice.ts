@@ -1,15 +1,15 @@
-import { DuaCategory } from "@/types/types"
+
 import { createSlice } from "@reduxjs/toolkit"
 
-
+export interface IInitialState {
+    categoryIid: number;
+    
+  }
 
 // Define the initial state using that type
-const initialState: DuaCategory = {
-    _id: '',
-    category_id: 0,
-    category_name_bn: 'string',
-    category_name_en: '',
-    subcategories: [],
+const initialState: IInitialState = {
+    
+    categoryIid: 0
 }
 
 export const categorySlice = createSlice({
@@ -17,13 +17,13 @@ export const categorySlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-   setDuas: (state, action) => {
-    state = action.payload;
+   setCategoryId: (state, action) => {
+    state.categoryIid = action.payload;
   },
   },
 })
 
-export const { } = categorySlice.actions
+export const {setCategoryId } = categorySlice.actions
 
 
 

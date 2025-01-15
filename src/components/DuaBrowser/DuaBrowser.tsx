@@ -1,82 +1,81 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
+import { ScrollArea } from "@/components/ui/scroll-area";
 
-import { ScrollArea } from '@/components/ui/scroll-area'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
-import { Dua, DuaCategory, Subcategory } from '@/types/types'
-
-interface DuaBrowserProps {
-  categories: DuaCategory[]
-}
+import { DuaBrowserProps } from "@/types/types";
+import { useAppSelector } from "@/redux/hooks";
+import {
+  Card,
+  CardContent,
+  
+  CardHeader,
+  CardTitle,
+} from "../ui/card";
+import icon from "../../assets/dua/allah_icon.png"
+import Image from "next/image";
 
 export function DuaBrowser({ categories }: DuaBrowserProps) {
-  // const [selectedCategory, setSelectedCategory] = useState<number | null>(null)
-  // const [selectedSubcategory, setSelectedSubcategory] = useState<number | null>(null)
-  const [selectedDuas, setSelectedDuas] = useState<Dua[]>([])
-
-  // const handleSubcategoryClick = (subcategory: Subcategory) => {
-  //   setSelectedSubcategory(subcategory.subcategory_id)
-  //   setSelectedDuas(subcategory.duas)
-  // }
-
+  const { categoryIid } = useAppSelector((state) => state.category);
+  const data = categories.find(
+    (category) => category.category_id === categoryIid
+  );
+  console.log(data);
 
   return (
     <div>
-     {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6"> */}
-      {/* Categories Section */}
-      {/* <div className="md:col-span-1 border rounded-lg">
-        <ScrollArea className="h-[600px]">
-          <Accordion type="single" collapsible>
-            {categories.map((category) => (
-              <AccordionItem key={category.category_id} value={category.category_id.toString()}>
-                <AccordionTrigger className="px-4">
-                  
-                  {category.category_name_en}
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="space-y-1 px-4 pb-4">
-                    {category.subcategories.map((subcategory) => (
-                      <Button
-                        key={subcategory.subcategory_id}
-                        variant={selectedSubcategory === subcategory.subcategory_id ? "secondary" : "ghost"}
-                        className="w-full justify-start text-left"
-                        onClick={() => handleSubcategoryClick(subcategory)}
-                      >
-                        {subcategory.subcategory_name_en}
-                      </Button>
-                    ))}
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </ScrollArea>
-      </div> */}
-
       {/* Duas Section */}
-      {/* <div className="md:col-span-2"> */}
-        <ScrollArea className="h-[600px]">
-          <div className="space-y-4 p-4">
-            {selectedDuas.map((dua) => (
-              <Card key={dua.dua_id} className="p-4">
-                {dua.dua_name_en && (
-                  <h3 className="font-semibold mb-2">{dua.dua_name_en}</h3>
-                )}
-                {dua.dua_arabic && (
-                  <p className="text-2xl text-right mb-4 font-arabic">{dua.dua_arabic}</p>
-                )}
-                {dua.translation_en && (
-                  <p className="text-muted-foreground">{dua.translation_en}</p>
-                )}
-              </Card>
-            ))}
-          </div>
-        </ScrollArea>
-      </div>
-    // </div>
-  )
-}
 
+      <ScrollArea className="h-dvh ">
+        <div className="space-y-2 p-4">
+          {data?.subcategories?.map((subcategory) => (
+            <div key={subcategory.subcategory_id}>
+              {/* Render category name */}
+
+              {/* Render subcategory name */}
+              <div className="py-5 rounded-lg bg-white shadow-sm px-8">
+                <h2>
+                  <span className="text-green-600 mr-2 font-semibold">
+                    Section:
+                  </span>
+                  {subcategory.subcategory_name_en}
+                </h2>
+              </div>
+
+              {/* Render Duas */}
+              {subcategory.duas.map((dua) => (
+                <Card key={dua.dua_id} className="my-2 shadow-sm">
+                  <CardHeader>
+                    <CardTitle className="text-green-600 mb-2 flex justify-start items-center space-x-2">
+                      <section>
+                      <Image width={35} height={35} src={icon} alt="icon" />
+                      </section> 
+                      <h1> 
+                        {dua.dua_id}. {dua.dua_name_en}
+                        </h1>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-2xl text-right mb-4 font-arabic">
+                      {dua.dua_arabic}
+                    </p>
+                  </CardContent>
+                  <CardContent>
+                    <p className="text-muted-foreground text-start">
+                    <span className="font-semibold text-black">Translation English: </span>{dua.translation_en}
+                    </p>
+                  </CardContent>
+                  <CardContent>
+                    <p className="text-muted-foreground text-start">
+                      <span className="font-semibold text-black">Translation Bangla: </span>{dua.translation_bn}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ))}
+        </div>
+      </ScrollArea>
+    </div>
+    // </div>
+  );
+}

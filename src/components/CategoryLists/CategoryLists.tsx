@@ -20,14 +20,14 @@ const CategoryLists = async () => {
 
   return (
     <ScrollArea>
-      <Accordion type="single" collapsible>
+      <Accordion type="single" collapsible className="w-[430px] h-[836px]">
         {data?.map((item: DuaCategory) => {
           
           return (
             <AccordionItem
               key={item.category_id}
               value={item.category_id.toString()}
-              className="my-4 bg-[#E8F0F5] w-[430px]  rounded-lg"
+              className="my-4 bg-[#E8F0F5]  rounded-lg"
             >
               {/* category Head */}
              

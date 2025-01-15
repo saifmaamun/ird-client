@@ -4,6 +4,8 @@ import {  DuaCategory } from "@/types/types";
 import Image from "next/image";
 import imgIcon from "../../assets/category/005-fever.png";
 import { AccordionTrigger } from "../ui/accordion";
+import { useAppDispatch } from "@/redux/hooks";
+import { setCategoryId } from "@/redux/features/categories/categorySlice";
 
 
 const SingleCategory = ({ item }: { item: DuaCategory }) => {
@@ -11,11 +13,15 @@ const SingleCategory = ({ item }: { item: DuaCategory }) => {
         (total, subcategory) => total + subcategory?.duas?.length,
         0
       );
+      const dispatch=useAppDispatch()
+      const handleSetCategoryId =(id:number)=>{
+        dispatch(setCategoryId(id))
+      }
 
     return (
         <>
         <AccordionTrigger className="flex justify-between items-center p-4" 
-        onClick={()=>console.log(item.category_id)}
+        onClick={()=>handleSetCategoryId(item.category_id)}
         >
         <div
                   className="flex justify-start items-center   gap-4"
