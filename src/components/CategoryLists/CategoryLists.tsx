@@ -1,28 +1,18 @@
-
-
-// import Image from "next/image";
-// import imgIcon from "../../assets/category/005-fever.png";
 import { DuaCategory } from "@/types/types";
 import { getDuas } from "@/actions/get-duas";
 import { ScrollArea } from "../ui/scroll-area";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-} from "../ui/accordion";
-import { Button } from "../ui/button";
-import SingleCategory from "../SingleCategory/SingleCategory";
+import { Accordion, AccordionContent, AccordionItem } from "../ui/accordion";
 
+import SingleCategory from "../SingleCategory/SingleCategory";
+import SubCategoryButton from "../SubCategoryButton/SubCategoryButton";
 
 const CategoryLists = async () => {
-  
   const data = await getDuas();
 
   return (
     <ScrollArea>
       <Accordion type="single" collapsible className="w-[430px] h-[836px]">
         {data?.map((item: DuaCategory) => {
-          
           return (
             <AccordionItem
               key={item.category_id}
@@ -30,23 +20,15 @@ const CategoryLists = async () => {
               className="my-4 bg-[#E8F0F5]  rounded-lg"
             >
               {/* category Head */}
-             
-             {/* accordian trigger */}
-                <SingleCategory item={item}/>
-              
+
+              {/* accordian trigger */}
+              <SingleCategory item={item} />
+
               {/* sub category list */}
               <AccordionContent>
-                <div className="space-y-1 bg-white px-4 pb-4">
+                <div className="space-y-1 bg-white px-4 py-4">
                   {item.subcategories.map((subcategory) => (
-                    <Button
-                      key={subcategory.subcategory_id}
-                      variant="ghost"
-                      // variant={selectedSubcategory === subcategory.subcategory_id ? "secondary" : "ghost"}
-                      className="w-full justify-start text-left"
-                      // onClick={() => handleSubcategoryClick(subcategory)}
-                    >
-                      {subcategory.subcategory_name_en}
-                    </Button>
+                    <SubCategoryButton sub={subcategory}  key={subcategory.subcategory_id}/>
                   ))}
                 </div>
               </AccordionContent>

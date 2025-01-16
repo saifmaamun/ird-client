@@ -15,7 +15,7 @@ import icon from "../../assets/dua/allah_icon.png"
 import Image from "next/image";
 
 export function DuaBrowser({ categories }: DuaBrowserProps) {
-  const { categoryIid } = useAppSelector((state) => state.category);
+  const { categoryId: categoryIid } = useAppSelector((state) => state.category);
   const data = categories.find(
     (category) => category.category_id === categoryIid
   );
@@ -32,7 +32,7 @@ export function DuaBrowser({ categories }: DuaBrowserProps) {
               {/* Render category name */}
 
               {/* Render subcategory name */}
-              <div className="py-5 rounded-lg bg-white shadow-sm px-8">
+              <div id={subcategory.subcategory_id.toString()} className="py-5 rounded-lg bg-white shadow-sm px-8">
                 <h2>
                   <span className="text-green-600 mr-2 font-semibold">
                     Section:

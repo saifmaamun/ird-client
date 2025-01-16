@@ -2,14 +2,16 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 export interface IInitialState {
-    categoryIid: number;
+    categoryId: number;
+    subCategoryId:number;
     
   }
 
 // Define the initial state using that type
 const initialState: IInitialState = {
     
-    categoryIid: 0
+    categoryId: 1,
+    subCategoryId:1
 }
 
 export const categorySlice = createSlice({
@@ -18,12 +20,15 @@ export const categorySlice = createSlice({
   initialState,
   reducers: {
    setCategoryId: (state, action) => {
-    state.categoryIid = action.payload;
+    state.categoryId = action.payload;
+  },
+   setSubCategoryId: (state, action) => {
+    state.subCategoryId = action.payload;
   },
   },
 })
 
-export const {setCategoryId } = categorySlice.actions
+export const {setCategoryId,setSubCategoryId } = categorySlice.actions
 
 
 
