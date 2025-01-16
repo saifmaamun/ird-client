@@ -4,22 +4,21 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 import { DuaBrowserProps } from "@/types/types";
 import { useAppSelector } from "@/redux/hooks";
-import {
-  Card,
-  CardContent,
-  
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
-import icon from "../../assets/dua/allah_icon.png"
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import icon from "../../assets/dua/allah_icon.png";
 import Image from "next/image";
 
 export function DuaBrowser({ categories }: DuaBrowserProps) {
-  const { categoryId: categoryIid } = useAppSelector((state) => state.category);
+  const { categoryId:categoryIid } = useAppSelector((state) => state.category);
+  const { subCategoryId } = useAppSelector((state) => state.category);
   const data = categories.find(
     (category) => category.category_id === categoryIid
   );
-  console.log(data);
+
+const element = document.getElementById(subCategoryId.toString());
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
 
   return (
     <div>
@@ -32,7 +31,10 @@ export function DuaBrowser({ categories }: DuaBrowserProps) {
               {/* Render category name */}
 
               {/* Render subcategory name */}
-              <div id={subcategory.subcategory_id.toString()} className="py-5 rounded-lg bg-white shadow-sm px-8">
+              <div
+                id={subcategory.subcategory_id.toString()}
+                className="py-5 rounded-lg bg-white shadow-sm px-8"
+              >
                 <h2>
                   <span className="text-green-600 mr-2 font-semibold">
                     Section:
@@ -47,11 +49,11 @@ export function DuaBrowser({ categories }: DuaBrowserProps) {
                   <CardHeader>
                     <CardTitle className="text-green-600 mb-2 flex justify-start items-center space-x-2">
                       <section>
-                      <Image width={35} height={35} src={icon} alt="icon" />
-                      </section> 
-                      <h1> 
+                        <Image width={35} height={35} src={icon} alt="icon" />
+                      </section>
+                      <h1>
                         {dua.dua_id}. {dua.dua_name_en}
-                        </h1>
+                      </h1>
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -61,12 +63,18 @@ export function DuaBrowser({ categories }: DuaBrowserProps) {
                   </CardContent>
                   <CardContent>
                     <p className="text-muted-foreground text-start">
-                    <span className="font-semibold text-black">Translation English: </span>{dua.translation_en}
+                      <span className="font-semibold text-black">
+                        Translation English:{" "}
+                      </span>
+                      {dua.translation_en}
                     </p>
                   </CardContent>
                   <CardContent>
                     <p className="text-muted-foreground text-start">
-                      <span className="font-semibold text-black">Translation Bangla: </span>{dua.translation_bn}
+                      <span className="font-semibold text-black">
+                        Translation Bangla:{" "}
+                      </span>
+                      {dua.translation_bn}
                     </p>
                   </CardContent>
                 </Card>
