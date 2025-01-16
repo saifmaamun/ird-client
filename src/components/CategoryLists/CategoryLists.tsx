@@ -6,12 +6,12 @@ import { Accordion, AccordionContent, AccordionItem } from "../ui/accordion";
 import SingleCategory from "../SingleCategory/SingleCategory";
 import SubCategoryButton from "../SubCategoryButton/SubCategoryButton";
 
-export const generateStaticParams=async()=> {
-  const res = await fetch("https://ird-back.vercel.app/categories")
-  const categories=await res.json()
+// export const generateStaticParams=async()=> {
+//   const res = await fetch("https://ird-back.vercel.app/categories")
+//   const categories=await res.json()
  
-  return categories.slice(0,2)
-}
+//   return categories.slice(0,2)
+// }
 
 const CategoryLists = async () => {
   const data = await getDuas();
