@@ -5,17 +5,17 @@ import { Input } from "@/components/ui/input";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center w-full ">
+    <div className="flex justify-between items-center w-full  mb-4">
       <div className="flex-1">
         <Link href="/">
           
           <h1 className="text-2xl font-semibold">Dua Page</h1>
         </Link>
       </div>
-      <div className="flex justify-center items-center gap-2">
+      <div className="md:flex justify-center items-center gap-2 hidden">
         
         
-        <Input className="bg-white border-none" type="text" placeholder="Search By Dua Name" />
+        <Input className="bg-white border-none " type="text" placeholder="Search By Dua Name" />
         
         <div className="dropdown dropdown-end 2xl:hidden block">
           

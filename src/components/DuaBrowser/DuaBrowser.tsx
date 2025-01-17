@@ -31,8 +31,8 @@ export function DuaBrowser({ categories }: DuaBrowserProps) {
     <div>
       {/* Duas Section */}
 
-      <ScrollArea className="h-dvh ">
-        <div className="space-y-2 p-4">
+      <ScrollArea className="h-dvh  ">
+        <div className="space-y-2 p-y-4">
           {data?.subcategories?.map((subcategory) => (
             <div key={subcategory.subcategory_id}>
               {/* Render category name */}

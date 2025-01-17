@@ -10,7 +10,7 @@ import { DuaBrowser } from "../DuaBrowser/DuaBrowser";
 const Content = ({ categories }: DuaBrowserProps) => {
 
     return (
-        <div className="flex w-full justify-start items-start space-x-4">
+        <div className="flex w-full justify-start items-start gap-x-4">
         {/* <div className="grid grid-cols-1 w-full md:grid-cols-3 gap-6"> */}
             <Categories/>
             {/* <Duas categories={categories}/> */}

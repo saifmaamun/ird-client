@@ -7,7 +7,7 @@ const MainContent = async() => {
     const duas = await getDuas()
     // console.log(duas)
     return (
-        <div className='flex flex-col justify-center items-center w-full p-4 bg-none space-x-4'>
+        <div className='flex flex-col justify-center items-center w-full p-4 bg-none gap-x-4'>
         <Navbar/>
         <Content categories={duas}/>
         {/* <Content/> */}
