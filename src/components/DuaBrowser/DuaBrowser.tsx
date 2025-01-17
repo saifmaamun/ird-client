@@ -7,7 +7,7 @@ import { useAppSelector } from "@/redux/hooks";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import icon from "../../assets/dua/allah_icon.png";
 import Image from "next/image";
-// import { useEffect } from "react";
+import { useEffect } from "react";
 
 export function DuaBrowser({ categories }: DuaBrowserProps) {
   const { categoryId:categoryIid } = useAppSelector((state) => state.category);
@@ -17,15 +17,15 @@ export function DuaBrowser({ categories }: DuaBrowserProps) {
     (category) => category.category_id === categoryIid
   );
 
-  // useEffect(() => {
-  //   // Trigger scrolling whenever subCategoryId changes
-  //   if (subCategoryId) {
-  //     const element = document.getElementById(subCategoryId.toString());
-  //     if (element) {
-  //       element.scrollIntoView({ behavior: 'smooth' });
-  //     }
-  //   }
-  // }, [subCategoryId]);
+  useEffect(() => {
+    // Trigger scrolling whenever subCategoryId changes
+    if (subCategoryId) {
+      const element = document.getElementById(subCategoryId.toString());
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [subCategoryId]);
 
   return (
     <div>
